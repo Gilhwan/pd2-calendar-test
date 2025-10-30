@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Copy URL</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 24px; }
+    .row { display: flex; gap: 8px; align-items: center; max-width: 720px; }
+    input[type="text"] { flex: 1; padding: 10px 12px; font-size: 14px; border: 1px solid #ccc; border-radius: 6px; }
+    button { padding: 10px 14px; font-size: 14px; border: 1px solid #2563eb; background: #2563eb; color: #fff; border-radius: 6px; cursor: pointer; }
+    button:active { transform: translateY(1px); }
+    .hint { color: #666; margin-top: 8px; font-size: 12px; }
+    .toast { margin-top: 10px; font-size: 13px; color: #065f46; background: #ecfdf5; border: 1px solid #a7f3d0; padding: 8px 10px; border-radius: 6px; display: none; }
+  </style>
+  <script>
+    // You can replace this later with the real URL
+    const DEFAULT_URL = 'https://gilhwan.github.io/pd2-calendar-test/offcalendar.ics';
+
+    function init() {
+      const input = document.getElementById('urlBox');
+      input.value = DEFAULT_URL;
+    }
+
+    async function copyUrl() {
+      const input = document.getElementById('urlBox');
+      const toast = document.getElementById('toast');
+      try {
+        await navigator.clipboard.writeText(input.value || '');
+        toast.textContent = 'URL copied to clipboard.';
+        toast.style.display = 'block';
+        setTimeout(() => { toast.style.display = 'none'; }, 1600);
+      } catch (e) {
+        toast.textContent = 'Copy failed. You can copy manually.';
+        toast.style.display = 'block';
+        setTimeout(() => { toast.style.display = 'none'; }, 2000);
+      }
+    }
+  </script>
+  </head>
+<body onload="init()">
+  <h2>2본부 캘린더 사용법</h2>
+  <ol>
+    <li>아래 URL을 복사합니다.</li>
+    <li>Outlook에서 캘린더 구독을 누르고, ics 링크를 붙여넣습니다.</li>
+    <li>혹은 이 주소 (<a href="https://krafton.atlassian.net/wiki/spaces/PDT2/calendars" target="_blank" rel="noopener noreferrer">https://krafton.atlassian.net/wiki/spaces/PDT2/calendars</a>) 로 이동하여 본부 캘린더를 확인해주세요.</li>
+  </ol>
+  <div class="row">
+    <input id="urlBox" type="text" placeholder="tbd" aria-label="URL" />
+    <button onclick="copyUrl()">Copy</button>
+  </div>
+  <div class="hint">Replace the field with the final URL when ready.</div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
+
+

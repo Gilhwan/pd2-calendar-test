@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publishing Div.2 | MBTI 16 유형 매트릭스</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #eef2f5;
+        }
+
+        .matrix-container {
+            width: 95%;
+            max-width: 1100px;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e3a8a; /* Dark Blue */
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            font-weight: 700;
+        }
+
+        /* MBTI 매트릭스 Grid 설정 */
+        .mbti-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        /* 각 MBTI 셀 스타일 */
+        .mbti-cell {
+            border: 1px solid #e5e7eb;
+            padding: 15px 10px;
+            border-radius: 8px;
+            text-align: center;
+            
+            /* 내용물(유형명, 이름)을 세로 중앙 정렬 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; 
+            
+            min-height: 140px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .mbti-cell:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* 4. 구분 (예: ISTJ) 스타일 (작은 크기, 볼드 유지) */
+        .type-name {
+            font-size: 0.95em; /* 크기 1.1em -> 0.95em 으로 축소 */ 
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        /* 3. 해당하는 사람 이름 스타일 (더 잘 보이게) */
+        .names {
+            font-size: 1.15em; 
+            font-weight: 600;
+            color: #1f2937; /* Darker text for names */
+            line-height: 1.5;
+            white-space: pre-wrap;
+        }
+        
+        /* 2. 데이터 없음 (없음) 스타일 */
+        .no-data .names {
+            font-size: 0.9em; /* 작은 글자 */
+            color: #9ca3af; /* 흐린 회색 */
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        /* 유형 그룹별 배경색 설정 (기질별 색상 유지) */
+        /* SJ (관리자) */
+        .SJ { background-color: #f0fdf4; border-color: #bbf7d0; } 
+        /* SP (탐험가) */
+        .SP { background-color: #fefce8; border-color: #fde68a; } 
+        /* NT (분석가) */
+        .NT { background-color: #eff6ff; border-color: #bfdbfe; } 
+        /* NF (외교관) */
+        .NF { background-color: #fdf2f8; border-color: #fbcfe8; } 
+
+        /* 1. 배치 순서 조정 (ESTJ-INFP 대각선 배치) 
+           순서: SJ (E, I), SP (E, I), NT (E, I), NF (E, I) */
+
+        /* Row 1: SJ */
+        .pos-1 { order: 1; } /* ESTJ */
+        .pos-2 { order: 2; } /* ESFJ */
+        .pos-3 { order: 3; } /* ISTJ */
+        .pos-4 { order: 4; } /* ISFJ */
+
+        /* Row 2: SP */
+        .pos-5 { order: 5; } /* ESTP */
+        .pos-6 { order: 6; } /* ESFP */
+        .pos-7 { order: 7; } /* ISTP */
+        .pos-8 { order: 8; } /* ISFP */
+
+        /* Row 3: NT */
+        .pos-9 { order: 9; } /* ENTJ */
+        .pos-10 { order: 10; } /* ENTP */
+        .pos-11 { order: 11; } /* INTJ */
+        .pos-12 { order: 12; } /* INTP */
+
+        /* Row 4: NF */
+        .pos-13 { order: 13; } /* ENFJ */
+        .pos-14 { order: 14; } /* ENFP */
+        .pos-15 { order: 15; } /* INFJ */
+        .pos-16 { order: 16; } /* INFP */
+
+    </style>
+</head>
+<body>
+
+    <div class="matrix-container">
+        <h1>🔍 Publishing Div.2 구성원 MBTI</h1>
+
+        <!-- MBTI 4x4 Grid - ESTJ(좌상단)에서 INFP(우하단)로 배열 -->
+        <div class="mbti-grid">
+
+            <!-- ======================= Row 1: SJ (관리자) ======================= -->
+            
+            <!-- 1. ESTJ (좌상단) -->
+            <div class="mbti-cell SJ pos-1">
+                <div class="type-name">ESTJ</div>
+                <div class="names">진호님, 예슬님</div>
+            </div>
+            
+            <div class="mbti-cell SJ pos-2">
+                <div class="type-name">ESFJ</div>
+                <div class="names">재현님</div>
+            </div>
+
+            <div class="mbti-cell SJ pos-3">
+                <div class="type-name">ISTJ</div>
+                <div class="names">진형님, 길환님</div>
+            </div>
+
+            <div class="mbti-cell SJ no-data pos-4">
+                <div class="type-name">ISFJ</div>
+                <div class="names">없음</div>
+            </div>
+
+            <!-- ======================= Row 2: SP (탐험가) ======================= -->
+            
+            <div class="mbti-cell SP no-data pos-5">
+                <div class="type-name">ESTP</div>
+                <div class="names">없음</div>
+            </div>
+
+            <div class="mbti-cell SP pos-6">
+                <div class="type-name">ESFP</div>
+                <div class="names">은지님</div>
+            </div>
+
+            <!-- ISTP 줄바꿈 적용 -->
+            <div class="mbti-cell SP pos-7">
+                <div class="type-name">ISTP</div>
+                <div class="names">혜린님, 윤우님<br>은서님, 윤지님</div>
+            </div>
+
+            <div class="mbti-cell SP no-data pos-8">
+                <div class="type-name">ISFP</div>
+                <div class="names">없음</div>
+            </div>
+
+            <!-- ======================= Row 3: NT (분석가) ======================= -->
+            
+            <div class="mbti-cell NT pos-9">
+                <div class="type-name">ENTJ</div>
+                <div class="names">응호님, 형규님</div>
+            </div>
+
+            <div class="mbti-cell NT pos-10">
+                <div class="type-name">ENTP</div>
+                <div class="names">서원님, 지연님</div>
+            </div>
+
+            <div class="mbti-cell NT pos-11">
+                <div class="type-name">INTJ</div>
+                <div class="names">경복님</div>
+            </div>
+            
+            <!-- INTP 줄바꿈 적용 -->
+            <div class="mbti-cell NT pos-12">
+                <div class="type-name">INTP</div>
+                <div class="names">용상님, 광우님<br>경윤님, 연수님</div>
+            </div>
+
+
+            <!-- ======================= Row 4: NF (외교관) ======================= -->
+            
+            <div class="mbti-cell NF pos-13">
+                <div class="type-name">ENFJ</div>
+                <div class="names">현욱님, 지훈님</div>
+            </div>
+            
+            <div class="mbti-cell NF pos-14">
+                <div class="type-name">ENFP</div>
+                <div class="names">원경님</div>
+            </div>
+
+            <div class="mbti-cell NF pos-15">
+                <div class="type-name">INFJ</div>
+                <div class="names">승빈님, 세린님, 준원님</div>
+            </div>
+
+            <!-- 1. INFP (우하단) -->
+            <div class="mbti-cell NF pos-16">
+                <div class="type-name">INFP</div>
+                <div class="names">세인님</div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
